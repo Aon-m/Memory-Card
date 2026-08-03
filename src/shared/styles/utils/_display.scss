@@ -1,0 +1,16 @@
+.mobile-hidden {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: initial;
+  }
+}
+.hidden {
+  display: none;
+}
+.invisible {
+  visibility: hidden;
+}
+.wide {
+  width: 100%;
+}

@@ -1,0 +1,50 @@
+.text {
+  font-family: "Space Mono", monospace, sans-serif;
+
+  /* Colors */
+  &-white {
+    color: var(--color-neutral-0);
+  }
+  &-black {
+    color: var(--color-neutral-8);
+  }
+  &-primary {
+    color: var(--color-primary);
+  }
+
+  /* Font sizes */
+  @for $size from 1 through 10 {
+    &-#{$size} {
+      font-size: var(--size-#{$size});
+    }
+  }
+
+  /* Font weights */
+  @for $weight from 1 through 9 {
+    &-#{$weight * 100} {
+      font-weight: $weight * 100;
+    }
+  }
+
+  /* Text transform */
+  &-uppercase {
+    text-transform: uppercase;
+  }
+  &-lowercase {
+    text-transform: lowercase;
+  }
+
+  /* Text alignment */
+  &-left {
+    text-align: left;
+  }
+  &-center {
+    text-align: center;
+  }
+  &-right {
+    text-align: right;
+  }
+  &-justify {
+    text-align: justify;
+  }
+}

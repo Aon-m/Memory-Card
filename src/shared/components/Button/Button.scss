@@ -1,0 +1,78 @@
+@use "@/shared/styles/abstracts/mixins" as m;
+
+.button {
+  background: transparent;
+  text-decoration: none;
+  border: 0.2rem solid transparent;
+  cursor: pointer;
+
+  &--rectangle {
+    padding: calc(var(--size-2) + 0.3rem) calc(var(--size-6) + 0.5rem);
+    border-radius: calc(var(--size-2) - 0.1rem);
+
+    @media screen and (min-width: 65rem) {
+      padding: var(--size-2) calc(var(--size-4) - 0.5rem);
+    }
+  }
+  &--circle {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+  }
+
+  &--wide {
+    width: 100%;
+  }
+
+  &--primary {
+    background-color: var(--color-neutral-8);
+  }
+  &--secondary {
+    background-color: var(--color-primary);
+  }
+
+  &--dropdown {
+    @include m.flex(row, center, flex-end);
+  }
+  &--navigation {
+    aspect-ratio: 1 / 1;
+    z-index: 2;
+
+    &--left {
+      justify-self: flex-start;
+      margin-inline-end: auto;
+    }
+    &--right {
+      justify-self: flex-end;
+      margin-inline-start: auto;
+    }
+  }
+  &--float {
+    position: fixed;
+    bottom: var(--size-4);
+    left: var(--size-4);
+  }
+  &--volume {
+    width: var(--size-4);
+    padding: calc(var(--size-2) * 2);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+
+    background: center / cover no-repeat;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+
+    &--unmute {
+      background-image: url("../assets/icons/icon-unmute.svg");
+    }
+
+    &--mute {
+      background-image: url("../assets/icons/icon-mute.svg");
+    }
+  }
+}

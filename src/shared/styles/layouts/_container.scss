@@ -1,0 +1,84 @@
+@use "@/shared/styles/abstracts/mixins" as m;
+
+.container {
+  padding-block: var(--size-6);
+  position: relative;
+
+  &--wide {
+    width: 100vw;
+  }
+  &--flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &--grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      clamp(20rem, calc(20rem + 1vw), 25rem)
+    );
+    justify-content: center;
+  }
+  &--fixed {
+    background-color: var(--color-primary);
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    &::before {
+      content: "";
+      width: 200vw;
+      height: 100vh;
+      position: absolute;
+      background-color: var(--color-primary);
+    }
+  }
+
+  &__header {
+    @include m.flex(row, space-between);
+    width: 100%;
+  }
+  &__image {
+    @include m.flex(column);
+  }
+
+  &__text-content {
+    @include m.flex(column);
+    min-height: 15rem;
+    width: min(90vw, 25rem);
+  }
+
+  &__sub-container {
+    @include m.flex(unset);
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: var(--size-4) var(--size-7) var(--size-2);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    &__text-content {
+      width: clamp(23rem, calc(20rem + 5vw), 40rem);
+      align-items: flex-start;
+    }
+
+    &__image {
+      height: 100%;
+      width: auto;
+      align-self: flex-end;
+      justify-self: flex-end;
+      margin-inline-start: auto;
+    }
+  }
+}

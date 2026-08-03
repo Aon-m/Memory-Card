@@ -1,0 +1,55 @@
+.fast-slow-hover {
+  transition: 1000ms ease;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-secondary);
+    transition: 500ms ease;
+  }
+}
+
+.underline-hover {
+  position: relative;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  &:not(.underline-hover--selected)::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 0%;
+    height: 0.3rem;
+    background-color: var(--color-neutral-0);
+    transition: 500ms ease;
+  }
+
+  &:not(.underline-hover--selected):hover::before {
+    width: 100%;
+    transition: 300ms ease;
+  }
+
+  &--selected::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: 100%;
+    height: 0.3rem;
+    background-color: var(--color-neutral-0);
+  }
+}
+
+.floating-hover {
+  transition: transform 1000ms ease;
+
+  &:hover {
+    transform: scale(1.3);
+    transition-duration: 500ms;
+  }
+}

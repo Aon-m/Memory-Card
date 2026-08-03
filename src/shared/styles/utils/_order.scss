@@ -1,0 +1,18 @@
+.order {
+  &-first {
+    order: 1;
+  }
+  &-last {
+    order: -1;
+  }
+  &-mobile-first {
+    order: -1;
+  }
+
+  &-desktop-last {
+    @media (min-width: 1200px) {
+      order: 1;
+    }
+  }
+}
+

@@ -1,0 +1,47 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(350deg);
+  }
+}
+
+.rotate {
+  animation: rotate 60s linear infinite;
+  will-change: transform;
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+  will-change: transform;
+  animation-delay: calc(var(--delay) * 0.4s);
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animation-passing {
+  animation: animation-passing 700ms ease-out infinite;
+  will-change: transform;
+  animation-delay: 500ms;
+}
+
+@keyframes animation-passing {
+  from {
+    transform: rotate(-45deg);
+  }
+
+  to {
+    transform: rotate(15deg);
+  }
+}
