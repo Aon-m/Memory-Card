@@ -7,11 +7,11 @@
   cursor: pointer;
 
   &--rectangle {
-    padding: calc(var(--size-2) + 0.3rem) calc(var(--size-6) + 0.5rem);
-    border-radius: calc(var(--size-2) - 0.1rem);
+    padding: var(--size-3) var(--size-7);
+    border-radius: var(--size-3);
 
-    @media screen and (min-width: 65rem) {
-      padding: var(--size-2) calc(var(--size-4) - 0.5rem);
+    @include bp.up(tablet) {
+      padding: var(--size-2) var(--size-3);
     }
   }
   &--circle {
@@ -53,7 +53,7 @@
   }
   &--volume {
     width: var(--size-4);
-    padding: calc(var(--size-2) * 2);
+    padding: var(--size-6);
     overflow: hidden;
     aspect-ratio: 1 / 1;
 

@@ -1,3 +1,6 @@
+@use "@/shared/styles/abstracts/breakpoints" as bp;
+
+
 .picture {
   $sizes: (
     large: 100%,
@@ -9,7 +12,7 @@
     &--#{$name} {
       width: $size;
 
-      @media screen and (min-width: 1200px) {
+      @include bp.up(desktop) {
         height: $size;
         width: auto;
       }
@@ -29,7 +32,7 @@
     width: 100%;
     object-fit: cover;
 
-    @media screen and (min-width: 1200px) {
+    @include bp.up(desktop) {
       height: 100%;
       width: clamp(15rem, calc(10rem + 10vw), 60rem);
     }

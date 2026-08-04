@@ -1,3 +1,4 @@
+@use "@/shared/styles/abstracts/breakpoints" as bp;
 @use "@/shared/styles/abstracts/mixins" as m;
 
 .container {
@@ -60,13 +61,13 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@include bp.up(tablet) {
   .container {
     padding: var(--size-4) var(--size-7) var(--size-2);
   }
 }
 
-@media screen and (min-width: 1200px) {
+@include bp.up(desktop) {
   .container {
     &__text-content {
       width: clamp(23rem, calc(20rem + 5vw), 40rem);

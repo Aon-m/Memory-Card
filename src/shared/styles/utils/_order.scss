@@ -1,18 +1,30 @@
+@use "@/shared/styles/abstracts/breakpoints" as bp;
+@use "sass:map";
+
 .order {
   &-first {
-    order: 1;
-  }
-  &-last {
-    order: -1;
-  }
-  &-mobile-first {
     order: -1;
   }
 
-  &-desktop-last {
-    @media (min-width: 1200px) {
+  &-last {
+    order: 1;
+  }
+
+  @each $name in map.keys(bp.$breakpoints) {
+    &-#{$name}-first {
       order: 1;
+
+      @include bp.up($name) {
+        order: -1;
+      }
+    }
+
+    &-#{$name}-last {
+      order: -1;
+
+      @include bp.up($name) {
+        order: 1;
+      }
     }
   }
 }
-
