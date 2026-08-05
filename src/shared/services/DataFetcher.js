@@ -1,9 +1,5 @@
-class DataFetcher {
-  constructor(source) {
-    this.source = source;
-  }
-
-  async fetchData(source = this.source) {
+export default class DataFetcher {
+  static async fetch(source) {
     if (source instanceof File) {
       return source.json();
     }
@@ -16,10 +12,10 @@ class DataFetcher {
       return source();
     }
 
-    return Promise.reject(new Error("Invalid source"));
+    throw new Error("Invalid source");
   }
 
-  async urlFetch(url) {
+  static async fetchFromUrl(url) {
     try {
       const response = await fetch(url);
 
@@ -32,12 +28,6 @@ class DataFetcher {
 
       const data = await response.json();
 
-      const gifUrl = data?.data?.images?.original?.url;
-
-      if (!gifUrl) {
-        throw new Error("Invalid API response: GIF not found");
-      }
-
       return data;
     } catch (err) {
       if (err.status === 429) {
@@ -45,7 +35,7 @@ class DataFetcher {
       } else if (err.status === 404) {
         console.log("Missing resource");
       } else if (err.status) {
-        console.error(`HTTP error: ${err.status} ${err.statusText || ""}`);
+        console.error(`HTTP error: ${err.status} ${err.statusText ?? ""}`);
       } else {
         console.error("Network error:", err.message);
       }
@@ -54,5 +44,3 @@ class DataFetcher {
     }
   }
 }
-
-export default DataFetcher;

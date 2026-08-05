@@ -29,3 +29,6 @@
 @use "./utils/order";
 @use "./utils/text";
 
+:root {
+  --color-primary: var(--color-fun-2);
+}
