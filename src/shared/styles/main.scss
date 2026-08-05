@@ -16,7 +16,6 @@
 @use "./components/general/icon";
 @use "./components/general/list";
 @use "./components/general/picture";
-@use "./components/specific/loader";
 
 // Layout
 @use "./layouts/container";
@@ -30,5 +29,5 @@
 @use "./utils/text";
 
 :root {
-  --color-primary: var(--color-fun-2);
+  --color-primary: #8ac249;
 }

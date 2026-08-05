@@ -21,4 +21,14 @@
       }
     }
   }
+
+  @each $name in map.keys(bp.$breakpoints) {
+    &-#{$name}-column {
+      flex-direction: column;
+
+      @include bp.up($name) {
+        flex-direction: row;
+      }
+    }
+  }
 }

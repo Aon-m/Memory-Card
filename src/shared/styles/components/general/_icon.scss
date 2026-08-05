@@ -11,7 +11,7 @@
   // .icon--1 ... .icon--10
   @for $i from 1 through 10 {
     &--#{$i} {
-      width: var(--size-#{$i});
+      width: calc(var(--size-#{$i}) * 2);
     }
   }
 

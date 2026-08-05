@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "Minecraft";
+  src: url("../../../assets/font/Minecrafter.Alt.ttf");
+}
+
 .text {
   font-family: "Space Mono", monospace, sans-serif;
+
+  &-minecraft {
+    font-family: "Minecraft", sans-serif;
+  }
 
   /* Colors */
   &-white {
@@ -15,7 +24,7 @@
   /* Font sizes */
   @for $size from 1 through 10 {
     &-#{$size} {
-      font-size: var(--size-#{$size});
+      font-size: var(--fs-#{$size});
     }
   }
 
@@ -23,6 +32,13 @@
   @for $weight from 1 through 9 {
     &-#{$weight * 100} {
       font-weight: $weight * 100;
+    }
+  }
+
+  /* Letter spacing */
+  @for $spacing from 1 through 10 {
+    &-ls-#{$spacing} {
+      letter-spacing: #{$spacing / 50}em;
     }
   }
 

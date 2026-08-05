@@ -1,5 +1,5 @@
 import "./Button.scss";
-import getClasses from "@/shared/utils/getClasses";
+import getClasses from "@/shared/helpers/getClasses";
 
 /**
  * @param {Object} props
@@ -18,7 +18,7 @@ export default function Button({
 }) {
   const {
     text = "text text-white text-4 text-700",
-    button = "button--primary button--rectangle",
+    button = "button--black button--rectangle",
   } = styles;
 
   return (
