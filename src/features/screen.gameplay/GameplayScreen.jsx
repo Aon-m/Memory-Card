@@ -1,9 +1,10 @@
+import "./GameplayScreen.scss"
 import logo from "@/assets/icons/logo.png";
 
 export default function GameplayScreen({ exitGameHandler, scoreboard, cards }) {
   return (
     <section
-      className="container container--flex flex-column gap-6 container--fullscreen"
+      className="container container--flex flex-column gap-6 container--fullscreen gameplay-screen"
       style={{ backgroundColor: "var(--color-primary)" }}
     >
       <div

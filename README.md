@@ -15,10 +15,9 @@
   - load
   - randomize
   - click (flip and evaluate)
-- Screen Transitions
-- Scoreboard
-  - Current Score
-  - Best Score
+- Scoreboard 🟩
+  - Current Score 🟩
+  - Best Score 🟩
 - Dialog
   - Win dialog
   - Lost Dialog

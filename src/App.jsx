@@ -5,6 +5,8 @@ import LoadingScreen from "./features/screen.loading/LoadingScreen";
 import GameplayScreen from "./features/screen.gameplay/GameplayScreen";
 import HomeScreen from "./features/screen.home/HomeScreen";
 
+import Scoreboard from "./features/scoreboard/Scoreboard";
+
 import messages from "./features/screen.loading/messages.json";
 import getRandomItem from "./shared/utils/getRandomItem";
 
@@ -37,7 +39,9 @@ function App() {
   }
 
   if (difficulty) {
-    return <GameplayScreen difficulty={difficulty}  />;
+    return (
+      <GameplayScreen difficulty={difficulty} scoreboard={<Scoreboard />} />
+    );
   }
 
   return <HomeScreen handleDifficultySelect={handleDifficultySelect} />;
