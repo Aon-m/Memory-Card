@@ -7,10 +7,10 @@
 - Gamemode Screen 🟩
   - logo 🟩
   - easy, medium, hard button 🟩
-- Gameplay Screen
-  - logo (exit game)
-  - cards
-  - scoreboard
+- Gameplay Screen 🟩
+  - logo (exit game) 🟩
+  - cards 🟩
+  - scoreboard 🟩
 - Cards (5, 10, 20)
   - load
   - randomize

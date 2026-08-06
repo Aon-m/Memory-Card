@@ -2,30 +2,45 @@ import { useEffect, useState } from "react";
 import preloadAssets from "./shared/utils/preloadAssets";
 
 import LoadingScreen from "./features/screen.loading/LoadingScreen";
-import messages from "./features/screen.loading/messages.json";
-
+import GameplayScreen from "./features/screen.gameplay/GameplayScreen";
 import HomeScreen from "./features/screen.home/HomeScreen";
 
-function App() {
-  const [loaded, setLoaded] = useState(false);
-  const [message] = useState(() => {
-    return messages[Math.floor(Math.random() * messages.length)];
-  });
+import messages from "./features/screen.loading/messages.json";
+import getRandomItem from "./shared/utils/getRandomItem";
 
+function App() {
+  // State
+  const [loaded, setLoaded] = useState(false);
+  const [difficulty, setDifficulty] = useState(null);
+
+  // Derived values
+  function handleDifficultySelect(difficulty) {
+    setDifficulty(difficulty);
+  }
+
+  // Effects
   useEffect(() => {
-    async function load() {
-      await preloadAssets();
+    async function initialize() {
+      const minimumDelay = new Promise((resolve) => setTimeout(resolve, 5000));
+
+      await Promise.all([preloadAssets(), minimumDelay]);
+
       setLoaded(true);
     }
 
-    load();
+    initialize();
   }, []);
 
+  // Render
   if (!loaded) {
-    return <LoadingScreen message={message} />;
+    return <LoadingScreen message={getRandomItem(messages)} />;
   }
 
-  return <HomeScreen />;
+  if (difficulty) {
+    return <GameplayScreen difficulty={difficulty}  />;
+  }
+
+  return <HomeScreen handleDifficultySelect={handleDifficultySelect} />;
 }
 
 export default App;
