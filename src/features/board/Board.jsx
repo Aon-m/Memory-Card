@@ -63,7 +63,7 @@ const Board = forwardRef(function Board(
             key={obj.id}
             id={obj.id}
             title={obj.name}
-            backgroundImage={obj.url}
+            imgUrl={obj.url}
             onClick={() => changeVisibleCards(obj.id)}
           />
         ))}
