@@ -13,10 +13,10 @@
   - logo (exit game) 🟩
   - cards 🟩
   - scoreboard 🟩
-- Cards (10)
-  - load
-  - randomize
-  - click (flip and evaluate)
+- Cards (10) 🟩
+  - load 🟩
+  - randomize 🟩
+  - click (flip and evaluate) 🟩
 - Scoreboard 🟩
   - Current Score 🟩
   - Best Score 🟩
@@ -54,6 +54,4 @@
 
 # Todo
 
-- onClick, change card flipped to true and return continue/dont continued
-- Generate the card images from a url
-- Use APIs
+- Generate the card images from a url using an API
