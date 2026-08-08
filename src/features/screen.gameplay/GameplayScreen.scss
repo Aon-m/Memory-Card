@@ -1,3 +1,9 @@
 .gameplay-screen {
   justify-content: flex-start;
+  padding: var(--size-6);
+
+  &__header {
+    width: 100%;
+    justify-content: space-between;
+  }
 }

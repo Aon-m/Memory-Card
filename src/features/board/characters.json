@@ -1,0 +1,158 @@
+{
+  "passive": [
+    {
+      "id": 1,
+      "name": "Villager",
+      "url": "https://giphy.com/gifs/minecraft-microsoft-builder-minecraft-HCLbhUDRzDxbUClyxl"
+    },
+    {
+      "id": 2,
+      "name": "Axolotl",
+      "url": "https://giphy.com/gifs/minecraft-microsoft-builder-minecraft-q0s0NVKnLk5WGvsLh3"
+    },
+    {
+      "id": 3,
+      "name": "Allay",
+      "url": "https://giphy.com/gifs/minecraft-game-loop-allay-25YsNY3kRsy7EkAJas"
+    },
+    {
+      "id": 4,
+      "name": "Bee",
+      "url": "https://giphy.com/gifs/minecraft-microsoft-builder-minecraft-MzZw0HJD6lRMsZsdTI"
+    },
+    {
+      "id": 5,
+      "name": "Frogs",
+      "url": "https://giphy.com/gifs/minecraft-mojang-sandbox-game-minecraft-live-yrPoVBgXsNmuAn6rhL"
+    },
+    {
+      "id": 6,
+      "name": "Cat",
+      "url": "https://giphy.com/gifs/bunnie-bunniestream-bunniebuilds-teaHq9VQTFQFYUprbB"
+    },
+    {
+      "id": 7,
+      "name": "Sheep",
+      "url": "https://giphy.com/gifs/xbox-game-xbox-series-x-s-HRrhIfKntvEFJdWq1w"
+    },
+    {
+      "id": 8,
+      "name": "Chicken",
+      "url": "https://giphy.com/gifs/xbox-game-xbox-series-x-s-AHpC7mG5fOaA3cgYw1"
+    },
+    {
+      "id": 9,
+      "name": "Horse",
+      "url": "https://giphy.com/gifs/minecraft-bunnie-bunniebuilds-Ql4vnWUNeJJeojJSEg"
+    },
+    {
+      "id": 10,
+      "name": "Mooshrooms",
+      "url": "https://giphy.com/gifs/minecraft-mcsm-story-mode-5cjTufOSgapUQTPbjD"
+    }
+  ],
+  "hostile": [
+    {
+      "id": 11,
+      "name": "Zombie",
+      "url": "https://giphy.com/gifs/xbox-game-xbox-series-x-s-s4hJIYj2yf0QLpuE1N"
+    },
+    {
+      "id": 12,
+      "name": "Creeper",
+      "url": "https://giphy.com/gifs/minecraft-trailsandtales-hIzEUA4a5hGDHRgy9P"
+    },
+    {
+      "id": 13,
+      "name": "Skeleton",
+      "url": "https://giphy.com/gifs/minecraft-video-game-microsoft-world-builder-RCIAwWelJ6BjzF6yqF"
+    },
+    {
+      "id": 14,
+      "name": "Spider",
+      "url": "https://giphy.com/gifs/xbox-minecraft-xbox-series-x-cave-cliffs-2PWBLDJ2KtB1X6o9vY"
+    },
+    {
+      "id": 15,
+      "name": "Pillager",
+      "url": "https://giphy.com/gifs/minecraft-microsoft-builder-minecraft-74oBQ5O5aJVv9t7Xuc"
+    },
+    {
+      "id": 16,
+      "name": "Hoglin",
+      "url": "https://giphy.com/gifs/minecraft-gamescom-mojang-minecraft-legends-7UkHgsjzeaVTvYSzjD"
+    },
+    {
+      "id": 17,
+      "name": "Witch",
+      "url": "https://giphy.com/gifs/minecraft-bunnie-bunniestream-Po96n9OBp6LAVcESRk"
+    },
+    {
+      "id": 18,
+      "name": "Blaze",
+      "url": "https://giphy.com/gifs/minecraft-video-game-microsoft-world-builder-f9EOaZAGkmQzPgyjjn"
+    },
+    {
+      "id": 19,
+      "name": "Enderman",
+      "url": "https://giphy.com/gifs/minecraft-video-game-microsoft-world-builder-gJ2eADoYgXYVR9xRCY"
+    },
+    {
+      "id": 20,
+      "name": "Piglin",
+      "url": "https://giphy.com/gifs/minecraft-pig-nether-piglin-kbb0RKJpfNwGxgxYMn"
+    }
+  ],
+  "iconic": [
+    {
+      "id": 21,
+      "name": "Steve",
+      "url": "https://giphy.com/gifs/minecraft-trailsandtales-RpJfOSd8NMZSnoUv5Q"
+    },
+    {
+      "id": 22,
+      "name": "Alex",
+      "url": "https://giphy.com/gifs/minecraft-video-games-mojang-sandbox-game-jsiDjSTRNaHGaJlqf7"
+    },
+    {
+      "id": 23,
+      "name": "Herobrine",
+      "url": "https://giphy.com/gifs/Xe3IhfK9nkuhQVQ5Fw"
+    },
+    {
+      "id": 24,
+      "name": "Warden",
+      "url": "https://giphy.com/gifs/minecraft-loop-warden-thewildupdate-h71k5t5eo4ZaDMgzbs"
+    },
+    {
+      "id": 25,
+      "name": "Ender Dragon",
+      "url": "https://tenor.com/view/teleport-ender-dragon-minecraft-ender-wish-rainimator-lightning-gif-17606347"
+    },
+    {
+      "id": 26,
+      "name": "Wither",
+      "url": "https://tenor.com/view/minecraft-wither-the-wither-bedrock-java-gif-17633662387189840208"
+    },
+    {
+      "id": 27,
+      "name": "Wither Storm",
+      "url": "https://giphy.com/gifs/u95SxV4FXab3HQUvYF"
+    },
+    {
+      "id": 28,
+      "name": "Killer Bunny",
+      "url": "https://tenor.com/view/fight-alan-becker-animation-minecraft-battle-gif-19535155"
+    },
+    {
+      "id": 29,
+      "name": "Elder Guardian",
+      "url": "https://giphy.com/gifs/minecraft-trailsandtales-mAp1eUoevvnAmfslLB"
+    },
+    {
+      "id": 30,
+      "name": "Technoblade",
+      "url": "https://giphy.com/gifs/technoblade-uhm8-uhmrenders-GZAtsi32qYxdlE8X0w"
+    }
+  ]
+}

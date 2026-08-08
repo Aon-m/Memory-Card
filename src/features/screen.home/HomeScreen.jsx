@@ -1,7 +1,7 @@
 import logo from "@/assets/icons/logo.png";
 import Button from "@/shared/components/Button/Button.jsx";
 
-export default function HomeScreen({ handleDifficultySelect }) {
+export default function HomeScreen({ handleModeSelect }) {
   const btnStyles = "text text-white text-6 text-700";
 
   return (
@@ -15,19 +15,19 @@ export default function HomeScreen({ handleDifficultySelect }) {
       </h1>
       <div className="flex flex-tablet-column gap-3">
         <Button
-          content="Easy"
+          content="Passive mobs"
           styles={{ text: btnStyles }}
-          onClick={(e) => handleDifficultySelect("easy", e)}
+          onClick={(e) => handleModeSelect("passive", e)}
         />
         <Button
-          content="Medium"
+          content="Hostile mobs"
           styles={{ text: btnStyles }}
-          onClick={(e) => handleDifficultySelect("medium", e)}
+          onClick={(e) => handleModeSelect("hostile", e)}
         />
         <Button
-          content="Hard"
+          content="Iconic mobs"
           styles={{ text: btnStyles }}
-          onClick={(e) => handleDifficultySelect("hard", e)}
+          onClick={(e) => handleModeSelect("iconic", e)}
         />
       </div>
     </section>

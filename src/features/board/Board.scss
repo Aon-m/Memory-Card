@@ -1,0 +1,39 @@
+@use "@/shared/styles/abstracts/mixins" as m;
+@use "@/shared/styles/abstracts/breakpoints" as bp;
+
+.board {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 100rem;
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(10rem, 1fr));
+
+    @include bp.up(laptop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.card {
+  @include m.flex(column);
+
+  border-radius: var(--size-4);
+  background-color: var(--color-neutral-0);
+  overflow: hidden;
+
+  aspect-ratio: 1 / 1.5;
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: center / cover no-repeat var(--background-image, none);
+    height: 80%;
+  }
+
+  &__footer {
+    @include m.flex(column);
+    height: 20%;
+  }
+}

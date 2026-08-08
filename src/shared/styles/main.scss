@@ -1,6 +1,5 @@
 // Abstracts (variables, mixins, functions)
 @use "./abstracts/breakpoints" as bp;
-@use "./abstracts/functions";
 @use "./abstracts/mixins" as m;
 @use "./abstracts/variables";
 
@@ -12,10 +11,7 @@
 @use "./animations";
 
 // Components
-@use "./components/general/card";
 @use "./components/general/icon";
-@use "./components/general/list";
-@use "./components/general/picture";
 
 // Layout
 @use "./layouts/container";
@@ -25,7 +21,6 @@
 @use "./utils/display";
 @use "./utils/flex";
 @use "./utils/gap";
-@use "./utils/order";
 @use "./utils/text";
 
 :root {

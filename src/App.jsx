@@ -1,29 +1,47 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import preloadAssets from "./shared/utils/preloadAssets";
 
 import LoadingScreen from "./features/screen.loading/LoadingScreen";
-import GameplayScreen from "./features/screen.gameplay/GameplayScreen";
-import HomeScreen from "./features/screen.home/HomeScreen";
-
-import Scoreboard from "./features/scoreboard/Scoreboard";
-
 import messages from "./features/screen.loading/messages.json";
 import getRandomItem from "./shared/utils/getRandomItem";
+
+import HomeScreen from "./features/screen.home/HomeScreen";
+
+import GameplayScreen from "./features/screen.gameplay/GameplayScreen";
+import Scoreboard from "./features/scoreboard/Scoreboard";
+import Board from "./features/board/Board";
+import characters from "./features/board/characters.json";
 
 function App() {
   // State
   const [loaded, setLoaded] = useState(false);
-  const [difficulty, setDifficulty] = useState(null);
+  const [mode, setMode] = useState(null);
+  const [flippedCards, setFlippedCards] = useState(0);
+  const scoreboardRef = useRef(null);
+  const boardRef = useRef(null);
 
   // Derived values
-  function handleDifficultySelect(difficulty) {
-    setDifficulty(difficulty);
+  function handleModeSelect(mode) {
+    setMode(mode);
+  }
+
+  function handleCardFlip(flipped) {
+    if (typeof flipped !== "boolean") return;
+
+    if (flipped) {
+      setFlippedCards((prev) => prev + 1);
+      scoreboardRef.current.increment();
+    } else {
+      setFlippedCards(0);
+      scoreboardRef.current.reset();
+      boardRef.current.resetCards();
+    }
   }
 
   // Effects
   useEffect(() => {
     async function initialize() {
-      const minimumDelay = new Promise((resolve) => setTimeout(resolve, 5000));
+      const minimumDelay = new Promise((resolve) => setTimeout(resolve, 2000));
 
       await Promise.all([preloadAssets(), minimumDelay]);
 
@@ -38,13 +56,27 @@ function App() {
     return <LoadingScreen message={getRandomItem(messages)} />;
   }
 
-  if (difficulty) {
+  if (mode) {
+    const cardObjs = characters[mode];
+
     return (
-      <GameplayScreen difficulty={difficulty} scoreboard={<Scoreboard />} />
+      <GameplayScreen
+        scoreboard={<Scoreboard ref={scoreboardRef} />}
+        cards={
+          <Board
+            ref={boardRef}
+            number={10}
+            displayable={4}
+            cardObjs={cardObjs}
+            flippedCards={flippedCards}
+            handleCardFlip={handleCardFlip}
+          />
+        }
+      />
     );
   }
 
-  return <HomeScreen handleDifficultySelect={handleDifficultySelect} />;
+  return <HomeScreen handleModeSelect={handleModeSelect} />;
 }
 
 export default App;
