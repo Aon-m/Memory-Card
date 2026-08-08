@@ -20,7 +20,6 @@ const Board = forwardRef(function Board(
   // Derived values
   function changeVisibleCards(id) {
     const card = cards.find((card) => card.id === id);
-    console.log(card, id);
 
     if (card.flipped) {
       handleCardFlip(false);
@@ -31,8 +30,12 @@ const Board = forwardRef(function Board(
       card.id === id ? { ...card, flipped: true } : card,
     );
 
-    setCards(updatedCards);
+    if (updatedCards.every((card) => card.flipped)) {
+      handleCardFlip("won");
+      return;
+    }
 
+    setCards(updatedCards);
     handleCardFlip(true);
   }
 

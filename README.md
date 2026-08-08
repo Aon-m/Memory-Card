@@ -20,10 +20,10 @@
 - Scoreboard 🟩
   - Current Score 🟩
   - Best Score 🟩
-- Dialog
-  - Win dialog
-  - Lost Dialog
-  - Restart button
+- Dialog 🟩
+  - Win dialog 🟩
+  - Lost Dialog 🟩
+  - Restart button 🟩
 - Help button
 - Sounds and Music
   - Sound button
@@ -55,3 +55,4 @@
 # Todo
 
 - Generate the card images from a url using an API
+- Rerender/mounts moves page to the top

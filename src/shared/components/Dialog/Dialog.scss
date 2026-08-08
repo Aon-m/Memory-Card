@@ -8,14 +8,14 @@
   width: min(80vw, 40rem);
   position: fixed;
   overflow: hidden;
-  border-radius: var(--size-2);
+  border-radius: var(--size-4);
   z-index: 99;
 
   &__content {
     @include m.flex(column);
     width: 100%;
     height: 100%;
-    padding: var(--size-2) var(--size-6);
+    padding: var(--size-6) var(--size-6);
     gap: var(--size-4);
     background: var(--color-primary);
   }

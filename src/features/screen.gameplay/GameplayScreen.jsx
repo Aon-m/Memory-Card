@@ -1,7 +1,7 @@
 import "./GameplayScreen.scss"
 import logo from "@/assets/icons/logo.png";
 
-export default function GameplayScreen({ handleGameExit, scoreboard, cards }) {
+export default function GameplayScreen({ handleGameExit, scoreboard, cards, dialog }) {
   return (
     <section
       className="container container--flex flex-column gap-6 container--fullscreen gameplay-screen"
@@ -19,6 +19,7 @@ export default function GameplayScreen({ handleGameExit, scoreboard, cards }) {
         {scoreboard}
       </div>
       {cards}
+      {dialog}
     </section>
   );
 }

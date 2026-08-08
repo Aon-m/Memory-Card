@@ -20,12 +20,12 @@ const Dialog = forwardRef(function Dialog(
 ) {
   // Style defaults
   const {
-    dialog = "card",
-    header = "card__header",
-    content = "card__content",
-    body = "card__body",
-    title: titleStyle = "card__title text text-white text-center text-6",
-    buttons: buttonsStyle = "card__buttons flex flex-768-column",
+    dialog = "",
+    header = "",
+    content = "",
+    body = "",
+    title: titleStyle = "text text-white text-center text-8",
+    buttons: buttonsStyle = "flex flex-768-column",
   } = styles;
 
   // Methods
@@ -55,13 +55,15 @@ const Dialog = forwardRef(function Dialog(
           <h2 className={`dialog__title ${titleStyle}`}>{title}</h2>
         </div>
 
-        <div className={`dialog__body ${body}`}>
-          {children}
+        {(children || buttons) && (
+          <div className={`dialog__body ${body}`}>
+            {children}
 
-          {buttons && (
-            <div className={`dialog__buttons ${buttonsStyle}`}>{buttons}</div>
-          )}
-        </div>
+            {buttons && (
+              <div className={`dialog__buttons ${buttonsStyle}`}>{buttons}</div>
+            )}
+          </div>
+        )}
       </div>
     </dialog>
   );

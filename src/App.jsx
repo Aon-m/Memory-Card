@@ -12,30 +12,52 @@ import Scoreboard from "./features/scoreboard/Scoreboard";
 import Board from "./features/board/Board";
 import characters from "./features/board/characters.json";
 
+import Dialog from "./shared/components/Dialog/Dialog";
+import Button from "./shared/components/Button/Button";
+
 function App() {
   // State
   const [loaded, setLoaded] = useState(false);
   const [mode, setMode] = useState(null);
   const [flippedCards, setFlippedCards] = useState(0);
+  const [dialogTitle, setDialogTitle] = useState("");
+
   const scoreboardRef = useRef(null);
   const boardRef = useRef(null);
+  const dialogRef = useRef(null);
 
   // Derived values
   function handleModeSelect(mode) {
     setMode(mode);
   }
 
-  function handleCardFlip(flipped) {
-    if (typeof flipped !== "boolean") return;
+  function resetGame(message) {
+    setFlippedCards(0);
+    scoreboardRef.current.reset();
+    boardRef.current.resetCards();
 
-    if (flipped) {
-      setFlippedCards((prev) => prev + 1);
-      scoreboardRef.current.increment();
-    } else {
-      setFlippedCards(0);
-      scoreboardRef.current.reset();
-      boardRef.current.resetCards();
+    setDialogTitle(message);
+    dialogRef.current.show();
+  }
+
+  function handleCardFlip(result) {
+    if (result === false) {
+      resetGame("You Lose!");
+      return;
     }
+
+    // If won or result = false
+    setFlippedCards((prev) => prev + 1);
+    scoreboardRef.current.increment();
+
+    if (result === "won") {
+      resetGame("You Won!");
+    }
+  }
+
+  function handleGameExit() {
+    setMode(null);
+    setFlippedCards(0);
   }
 
   // Effects
@@ -61,6 +83,7 @@ function App() {
 
     return (
       <GameplayScreen
+        handleGameExit={handleGameExit}
         scoreboard={<Scoreboard ref={scoreboardRef} />}
         cards={
           <Board
@@ -70,6 +93,18 @@ function App() {
             cardObjs={cardObjs}
             flippedCards={flippedCards}
             handleCardFlip={handleCardFlip}
+          />
+        }
+        dialog={
+          <Dialog
+            ref={dialogRef}
+            title={dialogTitle}
+            buttons={
+              <Button
+                onClick={() => dialogRef.current.close()}
+                content="Restart"
+              />
+            }
           />
         }
       />
