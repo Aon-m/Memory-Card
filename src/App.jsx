@@ -13,7 +13,10 @@ import Board from "./features/board/Board";
 import characters from "./features/board/characters.json";
 
 import Dialog from "./shared/components/Dialog/Dialog";
+import DialogContent from "./shared/components/Dialog/DialogContent";
 import Button from "./shared/components/Button/Button";
+
+import HelpBtn from "./features/help/Help";
 
 function App() {
   // State
@@ -27,6 +30,8 @@ function App() {
   const dialogRef = useRef(null);
 
   // Derived values
+  const cardObjs = characters[mode];
+
   function handleModeSelect(mode) {
     setMode(mode);
   }
@@ -78,26 +83,24 @@ function App() {
     return <LoadingScreen message={getRandomItem(messages)} />;
   }
 
-  if (mode) {
-    const cardObjs = characters[mode];
-
-    return (
-      <GameplayScreen
-        handleGameExit={handleGameExit}
-        scoreboard={<Scoreboard ref={scoreboardRef} />}
-        cards={
-          <Board
-            ref={boardRef}
-            number={10}
-            displayable={4}
-            cardObjs={cardObjs}
-            flippedCards={flippedCards}
-            handleCardFlip={handleCardFlip}
-          />
-        }
-        dialog={
-          <Dialog
-            ref={dialogRef}
+  const homeScreen = <HomeScreen handleModeSelect={handleModeSelect} />;
+  const gameplayScreen = (
+    <GameplayScreen
+      handleGameExit={handleGameExit}
+      scoreboard={<Scoreboard ref={scoreboardRef} />}
+      cards={
+        <Board
+          ref={boardRef}
+          number={10}
+          displayable={4}
+          cardObjs={cardObjs}
+          flippedCards={flippedCards}
+          handleCardFlip={handleCardFlip}
+        />
+      }
+      dialog={
+        <Dialog ref={dialogRef}>
+          <DialogContent
             title={dialogTitle}
             buttons={
               <Button
@@ -106,12 +109,18 @@ function App() {
               />
             }
           />
-        }
-      />
-    );
-  }
+        </Dialog>
+      }
+    />
+  );
 
-  return <HomeScreen handleModeSelect={handleModeSelect} />;
+  return (
+    <>
+      {mode ? gameplayScreen : homeScreen}
+
+      <HelpBtn />
+    </>
+  );
 }
 
 export default App;

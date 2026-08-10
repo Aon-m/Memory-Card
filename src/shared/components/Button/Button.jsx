@@ -8,6 +8,8 @@ import getClasses from "@/shared/helpers/getClasses";
  * @param {Object} [props.styles]
  * @param {string} [props.styles.button]
  * @param {string} [props.styles.text]
+ * @param {string} [props.styles.other]
+ * @param {string} [props.tooltip]
  * @param {(event: React.MouseEvent<HTMLButtonElement>) => void} [props.onClick]
  */
 export default function Button({
@@ -15,16 +17,19 @@ export default function Button({
   type = "button",
   styles = {},
   onClick,
+  tooltip,
 }) {
   const {
     text = "text text-white text-4 text-700",
     button = "button--black button--rectangle",
+    other = "",
   } = styles;
 
   return (
     <button
       type={type}
-      className={`button ${getClasses({ text, button })}`}
+      title={tooltip}
+      className={`button ${getClasses({ text, button, other })}`}
       onClick={onClick}
     >
       {content}

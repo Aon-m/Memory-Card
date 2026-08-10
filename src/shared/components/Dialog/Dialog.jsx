@@ -15,56 +15,48 @@ import { useRef, forwardRef, useImperativeHandle } from "react";
  * @param {string} [props.styles.body]
  */
 const Dialog = forwardRef(function Dialog(
-  { title, children, buttons, styles = {} },
+  { children, styles = {}, modal = true },
   ref,
 ) {
   // Style defaults
-  const {
-    dialog = "",
-    header = "",
-    content = "",
-    body = "",
-    title: titleStyle = "text text-white text-center text-8",
-    buttons: buttonsStyle = "flex flex-768-column",
-  } = styles;
+  const { dialog = "dialog" } = styles;
 
   // Methods
   const dialogRef = useRef(null);
   const previousFocus = useRef(null);
 
+  function show() {
+    previousFocus.current = document.activeElement;
+
+    if (modal) {
+      dialogRef.current.showModal();
+    } else {
+      dialogRef.current.show();
+    }
+  }
+
+  function close() {
+    dialogRef.current.close();
+    previousFocus.current?.focus();
+  }
+
   useImperativeHandle(ref, () => ({
     element: dialogRef.current,
+    show,
+    close,
 
-    show() {
-      previousFocus.current = document.activeElement;
-
-      dialogRef.current.showModal();
-      dialogRef.current.querySelector("[autofocus], button")?.focus();
-    },
-
-    close() {
-      dialogRef.current.close();
-      previousFocus.current?.focus();
+    toggle() {
+      if (dialogRef.current.open) {
+        close();
+      } else {
+        show();
+      }
     },
   }));
 
   return (
-    <dialog ref={dialogRef} className={`dialog ${dialog}`}>
-      <div className={`dialog__content ${content}`}>
-        <div className={`dialog__header ${header}`}>
-          <h2 className={`dialog__title ${titleStyle}`}>{title}</h2>
-        </div>
-
-        {(children || buttons) && (
-          <div className={`dialog__body ${body}`}>
-            {children}
-
-            {buttons && (
-              <div className={`dialog__buttons ${buttonsStyle}`}>{buttons}</div>
-            )}
-          </div>
-        )}
-      </div>
+    <dialog ref={dialogRef} className={`${dialog}`}>
+      {children}
     </dialog>
   );
 });

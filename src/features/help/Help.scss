@@ -1,0 +1,24 @@
+.help-btn {
+  position: fixed;
+  bottom: var(--size-3);
+  right: var(--size-3);
+
+  width: var(--size-7);
+}
+
+.help-dialog {
+  bottom: calc(var(--size-3) + var(--size-7));
+  margin-inline-start: auto;
+  right: calc(var(--size-3) + var(--size-7));
+  border: none;
+  width: min(75vw, 55ch);
+  position: fixed;
+  border-radius: var(--size-4);
+  background: transparent;
+}
+
+.tooltip {
+  background: var(--color-neutral-8);
+  border-radius: var(--size-3);
+  padding: var(--size-3);
+}

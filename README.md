@@ -24,27 +24,9 @@
   - Win dialog 🟩
   - Lost Dialog 🟩
   - Restart button 🟩
-- Help button
+- Help button 🟩
 - Sounds and Music
   - Sound button
-
-# Components
-
-- Card
-  - Image
-  - Text
-- Button
-  - Circle
-  - Rectangle
-- Dialog
-  - Win
-  - Lose
-- Screens
-  - Loading Screen
-  - Home Screen
-  - Game Screen
-- Sound
-  - Music
 
 # Acknowledgement
 
