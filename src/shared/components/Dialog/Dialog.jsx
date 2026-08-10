@@ -3,16 +3,9 @@ import { useRef, forwardRef, useImperativeHandle } from "react";
 
 /**
  * @param {Object} props
- * @param {string} props.title
  * @param {React.ReactNode} props.children
- * @param {React.ReactNode} props.buttons
  * @param {Object} [props.styles]
  * @param {string} [props.styles.dialog]
- * @param {string} [props.styles.header]
- * @param {string} [props.styles.content]
- * @param {string} [props.styles.title]
- * @param {string} [props.styles.buttons]
- * @param {string} [props.styles.body]
  */
 const Dialog = forwardRef(function Dialog(
   { children, styles = {}, modal = true },

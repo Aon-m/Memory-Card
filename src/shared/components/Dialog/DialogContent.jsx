@@ -1,4 +1,21 @@
-export default function DialogContent({ styles, title, children, buttons }) {
+/**
+ * @param {Object} props
+ * @param {string} props.title
+ * @param {React.ReactNode} props.children
+ * @param {React.ReactNode} props.buttons
+ * @param {Object} [props.styles]
+ * @param {string} [props.styles.header]
+ * @param {string} [props.styles.content]
+ * @param {string} [props.styles.title]
+ * @param {string} [props.styles.buttons]
+ * @param {string} [props.styles.body]
+ */
+export default function DialogContent({
+  styles = {},
+  title,
+  children,
+  buttons,
+}) {
   const {
     header = "dialog__header",
     content = "dialog__content",

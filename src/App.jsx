@@ -18,6 +18,8 @@ import Button from "./shared/components/Button/Button";
 
 import HelpBtn from "./features/help/Help";
 
+import Sounds from "./features/sounds/Sounds";
+
 function App() {
   // State
   const [loaded, setLoaded] = useState(false);
@@ -118,6 +120,7 @@ function App() {
     <>
       {mode ? gameplayScreen : homeScreen}
 
+      <Sounds />
       <HelpBtn />
     </>
   );

@@ -1,0 +1,23 @@
+.sounds {
+  position: fixed;
+  bottom: var(--size-3);
+  left: var(--size-3);
+
+  &__btn {
+    width: var(--size-7);
+
+    &--volume {
+      background: center / cover no-repeat;
+      background-color: var(--color-neutral-8);
+      background-size: 80%;
+
+      &--unmute {
+        background-image: url("@/assets/icons/icon-sound.svg");
+      }
+
+      &--mute {
+        background-image: url("@/assets/icons/icon-mute.svg");
+      }
+    }
+  }
+}
