@@ -21,7 +21,7 @@ import HelpBtn from "./features/help/Help";
 import Sounds from "./features/sounds/Sounds";
 import AudioController from "./shared/services/AudioController";
 
-import DataFetcher from "./shared/services/DataFetcher";
+import fetchGif from "./shared/services/fetchGif";
 
 function App() {
   // State
@@ -161,17 +161,21 @@ function App() {
 export default App;
 
 async function fetchImgUrls(objs) {
-  for (const obj of objs ?? []) {
-    if (!obj.url) continue;
+  return Promise.all(
+    (objs ?? []).map(async (obj) => {
+      if (!obj.giphyId) return obj;
 
-    try {
-      obj.url = await DataFetcher.fetch(obj.url);
-    } catch (error) {
-      console.error(`Failed to fetch ${obj.url}`, error);
-    }
+      try {
+        const url = await fetchGif(obj.giphyId);
 
-    console.log(obj.url);
-  }
-
-  return objs;
+        return {
+          ...obj,
+          url,
+        };
+      } catch (error) {
+        console.error(`Failed to fetch ${obj.giphyId}`, error);
+        return obj;
+      }
+    }),
+  );
 }
