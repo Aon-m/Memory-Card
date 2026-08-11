@@ -21,22 +21,35 @@ import HelpBtn from "./features/help/Help";
 import Sounds from "./features/sounds/Sounds";
 import AudioController from "./shared/services/AudioController";
 
+import DataFetcher from "./shared/services/DataFetcher";
+
 function App() {
   // State
-  const [loaded, setLoaded] = useState(false);
+  const [assetLoaded, setAssetLoaded] = useState(false);
+  const [apiLoading, setApiLoading] = useState(false);
   const [mode, setMode] = useState(null);
   const [flippedCards, setFlippedCards] = useState(0);
   const [dialogTitle, setDialogTitle] = useState("");
+  const [cardObjs, setCardObjs] = useState([]);
 
   const scoreboardRef = useRef(null);
   const boardRef = useRef(null);
   const dialogRef = useRef(null);
   const audioController = useRef(new AudioController()).current;
   // Derived values
-  const cardObjs = characters[mode];
 
-  function handleModeSelect(mode) {
-    setMode(mode);
+  async function handleModeSelect(mode) {
+    setApiLoading(true);
+
+    try {
+      const objs = await fetchImgUrls(characters[mode]);
+
+      setCardObjs(objs);
+      setMode(mode);
+    } finally {
+      setApiLoading(false);
+    }
+
     audioController.playSfx("click");
   }
 
@@ -80,14 +93,14 @@ function App() {
 
       await Promise.all([preloadAssets(), minimumDelay]);
 
-      setLoaded(true);
+      setAssetLoaded(true);
     }
 
     initialize();
   }, []);
 
   // Render
-  if (!loaded) {
+  if (!assetLoaded || apiLoading) {
     return <LoadingScreen message={getRandomItem(messages)} />;
   }
 
@@ -146,3 +159,19 @@ function App() {
 }
 
 export default App;
+
+async function fetchImgUrls(objs) {
+  for (const obj of objs ?? []) {
+    if (!obj.url) continue;
+
+    try {
+      obj.url = await DataFetcher.fetch(obj.url);
+    } catch (error) {
+      console.error(`Failed to fetch ${obj.url}`, error);
+    }
+
+    console.log(obj.url);
+  }
+
+  return objs;
+}

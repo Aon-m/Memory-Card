@@ -5,7 +5,7 @@ export default class DataFetcher {
     }
 
     if (typeof source === "string") {
-      return this.urlFetch(source);
+      return this.fetchFromUrl(source);
     }
 
     if (typeof source === "function") {
