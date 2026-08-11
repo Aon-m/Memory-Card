@@ -1,7 +1,7 @@
 import logo from "@/assets/icons/logo.png";
 import Button from "@/shared/components/Button/Button.jsx";
 
-export default function HomeScreen({ handleModeSelect }) {
+export default function HomeScreen({ handleModeSelect, onHover }) {
   const btnStyles = "text text-white text-6 text-700";
 
   return (
@@ -18,16 +18,19 @@ export default function HomeScreen({ handleModeSelect }) {
           content="Passive mobs"
           styles={{ text: btnStyles }}
           onClick={(e) => handleModeSelect("passive", e)}
+          onPointerEnter={onHover}
         />
         <Button
           content="Hostile mobs"
           styles={{ text: btnStyles }}
           onClick={(e) => handleModeSelect("hostile", e)}
+          onPointerEnter={onHover}
         />
         <Button
           content="Iconic mobs"
           styles={{ text: btnStyles }}
           onClick={(e) => handleModeSelect("iconic", e)}
+          onPointerEnter={onHover}
         />
       </div>
     </section>

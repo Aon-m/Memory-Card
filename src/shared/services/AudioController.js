@@ -1,78 +1,105 @@
-import click from "../assets/audio/audio-click.mp3";
-import lost from "../assets/audio/audio-lost.mp3";
-import won from "../assets/audio/audio-won.mp3";
-import place from "../assets/audio/audio-place.mp3";
-import background from "../assets/audio/background.mp3";
+import click from "@/assets/audio/audio-click.mp3";
+import lost from "@/assets/audio/audio-lost.mp3";
+import won from "@/assets/audio/audio-won.mp3";
+import place from "@/assets/audio/audio-place.mp3";
+import background from "@/assets/audio/background.mp3";
 
 export default class AudioController {
-  #muted = false;
+  #sfxMuted = true;
+  #musicMuted = true;
 
   #sounds = {
-    place: new Audio(place),
-    lost: new Audio(lost),
-    won: new Audio(won),
-    click: new Audio(click),
-    background: new Audio(background),
+    sfx: {
+      place: new Audio(place),
+      lost: new Audio(lost),
+      won: new Audio(won),
+      click: new Audio(click),
+    },
+
+    music: {
+      background: new Audio(background),
+    },
   };
 
-  init() {
-    this.mute();
+  constructor() {
+    const { background } = this.#sounds.music;
+
+    background.loop = true;
+    background.volume = 1;
   }
 
-  backgroundInit() {
-    const waves = this.#sounds.waves;
-    waves.loop = true;
-    waves.volume = 0.2;
+  playSfx(name) {
+    const audio = this.#sounds.sfx[name];
 
-    waves.play();
-  }
-
-  /**
-   * @param {"place" | "lost" | "won" | "click" | "background"} name
-   */
-  play(name) {
-    if (this.#muted) return;
-
-    const audio = this.#sounds[name];
-    if (!audio) return;
+    if (!audio || this.#sfxMuted) return;
 
     audio.currentTime = 0;
-    audio.play();
+    audio.play().catch(() => {});
   }
 
-  stop(name) {
-    const audio = this.#sounds[name];
+  playMusic(name) {
+    const audio = this.#sounds.music[name];
+
+    if (!audio || this.#musicMuted) return;
+
+    audio.play().catch(() => {});
+  }
+
+  stopSfx(name) {
+    const audio = this.#sounds.sfx[name];
+
     if (!audio) return;
 
     audio.pause();
     audio.currentTime = 0;
   }
 
-  mute() {
-    this.#muted = true;
+  stopMusic(name) {
+    const audio = this.#sounds.music[name];
 
-    Object.values(this.#sounds).forEach((audio) => {
-      audio.muted = true;
+    if (!audio) return;
+
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
+  toggleSfx(toggle = true) {
+    if (toggle === false) return this.#sfxMuted;
+
+    this.#sfxMuted = !this.#sfxMuted;
+
+    return this.#sfxMuted;
+  }
+
+  toggleMusic(toggle = true) {
+    if (toggle === false) return this.#musicMuted;
+
+    this.#musicMuted = !this.#musicMuted;
+
+    const background = this.#sounds.music.background;
+
+    if (this.#musicMuted) {
+      background.pause();
+    } else {
+      this.playMusic("background");
+    }
+
+    return this.#musicMuted;
+  }
+
+  setSfxVolume(volume) {
+    const clampedVolume = Math.min(Math.max(volume, 0), 1);
+
+    Object.values(this.#sounds.sfx).forEach((audio) => {
+      audio.volume = clampedVolume;
     });
   }
 
-  unmute() {
-    this.#muted = false;
+  setMusicVolume(volume) {
+    const clampedVolume = Math.min(Math.max(volume, 0), 1);
 
-    Object.values(this.#sounds).forEach((audio) => {
-      audio.muted = false;
-    });
-  }
-
-  toggleMute() {
-    this.#muted ? this.unmute() : this.mute();
-
-    return this.#muted;
-  }
-
-  setVolume(volume) {
-    Object.values(this.#sounds).forEach((audio) => {
-      audio.volume = volume;
+    Object.values(this.#sounds.music).forEach((audio) => {
+      audio.volume = clampedVolume;
     });
   }
 }

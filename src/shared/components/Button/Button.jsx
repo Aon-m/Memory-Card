@@ -16,8 +16,9 @@ export default function Button({
   content,
   type = "button",
   styles = {},
-  onClick,
   tooltip,
+  onClick,
+  onPointerEnter,
 }) {
   const {
     text = "text text-white text-4 text-700",
@@ -31,6 +32,7 @@ export default function Button({
       title={tooltip}
       className={`button ${getClasses({ text, button, other })}`}
       onClick={onClick}
+      onPointerEnter={onPointerEnter}
     >
       {content}
     </button>

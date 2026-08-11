@@ -2,40 +2,44 @@ import Button from "@/shared/components/Button/Button";
 import "./Sounds.scss";
 import { useState } from "react";
 
-export default function Sounds({ handleSfx, handleMusic }) {
-  const [sfxMuted, setSfxMuted] = useState(false);
-  const [musicMuted, setMusicMuted] = useState(false);
+export default function Sounds({ handleSfx, handleMusic, onHover, onClick }) {
+  const [sfxMuted, setSfxMuted] = useState(handleSfx(false));
+  const [musicMuted, setMusicMuted] = useState(handleMusic(false));
 
   function toggleSfx() {
     setSfxMuted((prev) => !prev);
-    handleSfx(sfxMuted);
+    handleSfx();
   }
 
   function toggleMusic() {
     setMusicMuted((prev) => !prev);
-    handleMusic(musicMuted);
+    handleMusic();
   }
 
   return (
     <div className="sounds flex flex-row gap-3">
       <Button
         tooltip="Sound Effects"
+        onClick={onClick}
+        onPointerEnter={onHover}
         styles={{
           button: `button--circle sounds__btn sounds__btn--volume ${
-            sfxMuted
+            musicMuted
               ? "sounds__btn--volume--unmute"
               : "sounds__btn--volume--mute"
           }`,
         }}
-        onClick={toggleSfx}
+        onClick={toggleMusic}
       />
       <Button
-        content={musicMuted ? "S" : "NS"}
+        content={sfxMuted ? "S" : "NS"}
         tooltip="Music"
+        onClick={onClick}
+        onPointerEnter={onHover}
         styles={{
-          button: "button--black button--circle sounds__btn ",
+          button: "button--black button--circle sounds__btn",
         }}
-        onClick={toggleMusic}
+        onClick={toggleSfx}
       />
     </div>
   );

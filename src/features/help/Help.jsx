@@ -4,7 +4,7 @@ import Dialog from "@/shared/components/Dialog/Dialog";
 import ToolTip from "./ToolTip";
 import { useRef } from "react";
 
-export default function Help() {
+export default function Help({ onClick, onHover }) {
   const dialogRef = useRef(null);
 
   function toggleDialog() {
@@ -15,7 +15,12 @@ export default function Help() {
     <>
       <Button
         content="?"
-        onClick={toggleDialog}
+        onClick={() => {
+          toggleDialog();
+          onClick();
+        }}
+        onHover={onHover}
+        onPointerEnter={onHover}
         tooltip="Help Button"
         styles={{
           other: "help-btn",
@@ -30,8 +35,8 @@ export default function Help() {
         }}
       >
         <div className="flex flex-column gap-2">
-          <ToolTip>Click the help button to close dialog</ToolTip>
-          <ToolTip>Don't click on the same card twice!</ToolTip>
+          <ToolTip>Click the "?" again to close</ToolTip>
+          <ToolTip>Don't click on the same card twice</ToolTip>
           <ToolTip>Click the Minecraft logo to go back</ToolTip>
         </div>
       </Dialog>

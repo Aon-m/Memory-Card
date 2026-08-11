@@ -19,6 +19,7 @@ import Button from "./shared/components/Button/Button";
 import HelpBtn from "./features/help/Help";
 
 import Sounds from "./features/sounds/Sounds";
+import AudioController from "./shared/services/AudioController";
 
 function App() {
   // State
@@ -30,12 +31,13 @@ function App() {
   const scoreboardRef = useRef(null);
   const boardRef = useRef(null);
   const dialogRef = useRef(null);
-
+  const audioController = useRef(new AudioController()).current;
   // Derived values
   const cardObjs = characters[mode];
 
   function handleModeSelect(mode) {
     setMode(mode);
+    audioController.playSfx("click");
   }
 
   function resetGame(message) {
@@ -48,8 +50,11 @@ function App() {
   }
 
   function handleCardFlip(result) {
+    audioController.playSfx("place");
+
     if (result === false) {
       resetGame("You Lose!");
+      audioController.playSfx("lost");
       return;
     }
 
@@ -59,6 +64,7 @@ function App() {
 
     if (result === "won") {
       resetGame("You Won!");
+      audioController.playSfx("won");
     }
   }
 
@@ -85,12 +91,17 @@ function App() {
     return <LoadingScreen message={getRandomItem(messages)} />;
   }
 
-  const homeScreen = <HomeScreen handleModeSelect={handleModeSelect} />;
+  const homeScreen = (
+    <HomeScreen
+      handleModeSelect={handleModeSelect}
+      onHover={() => audioController.playSfx("click")}
+    />
+  );
   const gameplayScreen = (
     <GameplayScreen
       handleGameExit={handleGameExit}
       scoreboard={<Scoreboard ref={scoreboardRef} />}
-      cards={
+      board={
         <Board
           ref={boardRef}
           number={10}
@@ -120,8 +131,16 @@ function App() {
     <>
       {mode ? gameplayScreen : homeScreen}
 
-      <Sounds />
-      <HelpBtn />
+      <Sounds
+        handleMusic={() => audioController.toggleMusic()}
+        handleSfx={() => audioController.toggleSfx()}
+        onClick={() => audioController.playSfx("click")}
+        onHover={() => audioController.playSfx("click")}
+      />
+      <HelpBtn
+        onClick={() => audioController.playSfx("click")}
+        onHover={() => audioController.playSfx("click")}
+      />
     </>
   );
 }

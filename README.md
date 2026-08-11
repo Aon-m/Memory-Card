@@ -5,9 +5,6 @@
 # Todo
 
 - Generate the card images from a url using an API
-- Rerender/mounts moves page to the top
-- Sound Effects
-- Animations?
 
 # Acknowledgement
 
