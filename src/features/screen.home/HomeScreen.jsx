@@ -15,19 +15,19 @@ export default function HomeScreen({ handleModeSelect, onHover }) {
       </h1>
       <div className="flex flex-tablet-column gap-3">
         <Button
-          content="Passive mobs"
+          content="Passive"
           styles={{ text: btnStyles }}
           onClick={(e) => handleModeSelect("passive", e)}
           onPointerEnter={onHover}
         />
         <Button
-          content="Hostile mobs"
+          content="Hostile"
           styles={{ text: btnStyles }}
           onClick={(e) => handleModeSelect("hostile", e)}
           onPointerEnter={onHover}
         />
         <Button
-          content="Iconic mobs"
+          content="Iconic"
           styles={{ text: btnStyles }}
           onClick={(e) => handleModeSelect("iconic", e)}
           onPointerEnter={onHover}
