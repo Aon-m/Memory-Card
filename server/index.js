@@ -14,6 +14,7 @@ app.get("/api/giphy/:id", async (req, res) => {
 
     const response = await axios.get(`https://api.giphy.com/v1/gifs/${id}`, {
       params: {
+        // eslint-disable-next-line no-undef
         api_key: process.env.API_KEY,
       },
     });
