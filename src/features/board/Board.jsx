@@ -13,6 +13,7 @@ const Board = forwardRef(function Board(
       id: obj.id,
       name: obj.name,
       url: obj.url,
+      alt: obj.alt,
       flipped: false,
     })),
   );
@@ -68,6 +69,7 @@ const Board = forwardRef(function Board(
             title={obj.name}
             imgUrl={obj.url}
             onClick={() => changeVisibleCards(obj.id)}
+            alt={obj.alt}
           />
         ))}
       </div>

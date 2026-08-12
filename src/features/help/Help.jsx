@@ -38,6 +38,7 @@ export default function Help({ onClick, onHover }) {
           <ToolTip>Click the "?" again to close</ToolTip>
           <ToolTip>Don't click on the same card twice</ToolTip>
           <ToolTip>Click the Minecraft logo to go back</ToolTip>
+          <ToolTip>Long loading time? Reload the page or check your Wi-Fi</ToolTip>
         </div>
       </Dialog>
     </>

@@ -3,156 +3,186 @@
     {
       "id": 1,
       "name": "Villager",
-      "giphyId": "HCLbhUDRzDxbUClyxl"
+      "giphyId": "HCLbhUDRzDxbUClyxl",
+      "alt": "Minecraft Villager"
     },
     {
       "id": 2,
       "name": "Axolotl",
-      "giphyId": "q0s0NVKnLk5WGvsLh3"
+      "giphyId": "q0s0NVKnLk5WGvsLh3",
+      "alt": "Minecraft Axolotl"
     },
     {
       "id": 3,
       "name": "Allay",
-      "giphyId": "25YsNY3kRsy7EkAJas"
+      "giphyId": "25YsNY3kRsy7EkAJas",
+      "alt": "Minecraft Allay"
     },
     {
       "id": 4,
       "name": "Bee",
-      "giphyId": "MzZw0HJD6lRMsZsdTI"
+      "giphyId": "MzZw0HJD6lRMsZsdTI",
+      "alt": "Minecraft Bee"
     },
     {
       "id": 5,
       "name": "Frogs",
-      "giphyId": "yrPoVBgXsNmuAn6rhL"
+      "giphyId": "yrPoVBgXsNmuAn6rhL",
+      "alt": "Minecraft Frogs"
     },
     {
       "id": 6,
       "name": "Cat",
-      "giphyId": "teaHq9VQTFQFYUprbB"
+      "giphyId": "teaHq9VQTFQFYUprbB",
+      "alt": "Minecraft Cat"
     },
     {
       "id": 7,
       "name": "Sheep",
-      "giphyId": "HRrhIfKntvEFJdWq1w"
+      "giphyId": "HRrhIfKntvEFJdWq1w",
+      "alt": "Minecraft Sheep"
     },
     {
       "id": 8,
       "name": "Chicken",
-      "giphyId": "AHpC7mG5fOaA3cgYw1"
+      "giphyId": "AHpC7mG5fOaA3cgYw1",
+      "alt": "Minecraft Chicken"
     },
     {
       "id": 9,
       "name": "Horse",
-      "giphyId": "Ql4vnWUNeJJeojJSEg"
+      "giphyId": "Ql4vnWUNeJJeojJSEg",
+      "alt": "Minecraft Horse"
     },
     {
       "id": 10,
       "name": "Mooshrooms",
-      "giphyId": "5cjTufOSgapUQTPbjD"
+      "giphyId": "5cjTufOSgapUQTPbjD",
+      "alt": "Minecraft Mooshrooms"
     }
   ],
   "hostile": [
     {
       "id": 11,
       "name": "Zombie",
-      "giphyId": "s4hJIYj2yf0QLpuE1N"
+      "giphyId": "s4hJIYj2yf0QLpuE1N",
+      "alt": "Minecraft Zombie"
     },
     {
       "id": 12,
       "name": "Creeper",
-      "giphyId": "hIzEUA4a5hGDHRgy9P"
+      "giphyId": "hIzEUA4a5hGDHRgy9P",
+      "alt": "Minecraft Creeper"
     },
     {
       "id": 13,
       "name": "Skeleton",
-      "giphyId": "RCIAwWelJ6BjzF6yqF"
+      "giphyId": "RCIAwWelJ6BjzF6yqF",
+      "alt": "Minecraft Skeleton"
     },
     {
       "id": 14,
       "name": "Spider",
-      "giphyId": "2PWBLDJ2KtB1X6o9vY"
+      "giphyId": "2PWBLDJ2KtB1X6o9vY",
+      "alt": "Minecraft Spider"
     },
     {
       "id": 15,
       "name": "Pillager",
-      "giphyId": "74oBQ5O5aJVv9t7Xuc"
+      "giphyId": "74oBQ5O5aJVv9t7Xuc",
+      "alt": "Minecraft Pillager"
     },
     {
       "id": 16,
       "name": "Hoglin",
-      "giphyId": "7UkHgsjzeaVTvYSzjD"
+      "giphyId": "7UkHgsjzeaVTvYSzjD",
+      "alt": "Minecraft Hoglin"
     },
     {
       "id": 17,
       "name": "Witch",
-      "giphyId": "Po96n9OBp6LAVcESRk"
+      "giphyId": "Po96n9OBp6LAVcESRk",
+      "alt": "Minecraft Witch"
     },
     {
       "id": 18,
       "name": "Blaze",
-      "giphyId": "f9EOaZAGkmQzPgyjjn"
+      "giphyId": "f9EOaZAGkmQzPgyjjn",
+      "alt": "Minecraft Blaze"
     },
     {
       "id": 19,
       "name": "Enderman",
-      "giphyId": "gJ2eADoYgXYVR9xRCY"
+      "giphyId": "gJ2eADoYgXYVR9xRCY",
+      "alt": "Minecraft Enderman"
     },
     {
       "id": 20,
       "name": "Piglin",
-      "giphyId": "kbb0RKJpfNwGxgxYMn"
+      "giphyId": "kbb0RKJpfNwGxgxYMn",
+      "alt": "Minecraft Piglin"
     }
   ],
   "iconic": [
     {
       "id": 21,
       "name": "Steve",
-      "giphyId": "RpJfOSd8NMZSnoUv5Q"
+      "giphyId": "RpJfOSd8NMZSnoUv5Q",
+      "alt": "Minecraft Steve"
     },
     {
       "id": 22,
       "name": "Alex",
-      "giphyId": "siDjSTRNaHGaJlqf7"
+      "giphyId": "siDjSTRNaHGaJlqf7",
+      "alt": "Minecraft Alex"
     },
     {
       "id": 23,
       "name": "Herobrine",
-      "giphyId": "Xe3IhfK9nkuhQVQ5Fw"
+      "giphyId": "Xe3IhfK9nkuhQVQ5Fw",
+      "alt": "Minecraft Herobrine"
     },
     {
       "id": 24,
       "name": "Warden",
-      "giphyId": "h71k5t5eo4ZaDMgzbs"
+      "giphyId": "h71k5t5eo4ZaDMgzbs",
+      "alt": "Minecraft Warden"
     },
     {
       "id": 25,
       "name": "Alan Becker",
-      "giphyId": "12j1rRDt0wL43PRY6C"
+      "giphyId": "12j1rRDt0wL43PRY6C",
+      "alt": "Minecraft Alan Becker"
     },
     {
       "id": 26,
       "name": "Wither",
-      "giphyId": "9Ger55Hs50YsU"
+      "giphyId": "9Ger55Hs50YsU",
+      "alt": "Minecraft Wither"
     },
     {
       "id": 27,
       "name": "Wither Storm",
-      "giphyId": "u95SxV4FXab3HQUvYF"
+      "giphyId": "u95SxV4FXab3HQUvYF",
+      "alt": "Minecraft Wither Storm"
     },
     {
       "id": 28,
       "name": "Story Mode",
-      "giphyId": "rKwrVvjQHMFRNswhoU"
+      "giphyId": "rKwrVvjQHMFRNswhoU",
+      "alt": "Minecraft Story Mode"
     },
     {
       "id": 29,
       "name": "Elder Guardian",
-      "giphyId": "mAp1eUoevvnAmfslLB"
+      "giphyId": "mAp1eUoevvnAmfslLB",
+      "alt": "Minecraft Elder Guardian"
     },
     {
       "id": 30,
       "name": "Technoblade",
-      "giphyId": "GZAtsi32qYxdlE8X0w"
+      "giphyId": "GZAtsi32qYxdlE8X0w",
+      "alt": "Minecraft Technoblade"
     }
   ]
 }
