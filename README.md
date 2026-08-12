@@ -4,7 +4,7 @@
 
 # Live Server
 
-- [Server](to be added)
+- [Server](https://memory-card-lovat-chi.vercel.app/)
 
 # Acknowledgement
 
