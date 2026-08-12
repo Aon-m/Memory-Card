@@ -6,5 +6,5 @@ export default async function fetchGif(id) {
     throw new Error("Failed to fetch GIF");
   }
 
-  return data;
+  return data.data.images.original.url;
 }

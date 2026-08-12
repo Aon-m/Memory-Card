@@ -18,9 +18,7 @@ app.get("/api/giphy/:id", async (req, res) => {
       },
     });
 
-    const gifUrl = response.data.data.images.original.url;
-
-    res.json({ url: gifUrl });
+    res.json(response.data);
   } catch (error) {
     console.error("GIPHY ERROR:");
     console.error(error.response?.data || error.message);
