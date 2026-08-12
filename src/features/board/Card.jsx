@@ -17,7 +17,7 @@ export default function Card({ title, imgUrl, onClick, alt }) {
       onKeyDown={onKeyDown}
       tabIndex={0}
     >
-      <img className="card__image" src={`${imgUrl}`} alt={alt}/>
+      <img className="card__image text text-4 text-400" src={`${imgUrl}`} alt={alt}/>
       <div className="card__footer text text-6 text-600 text-black text-center">
         {title}
       </div>
