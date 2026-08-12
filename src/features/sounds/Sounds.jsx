@@ -19,8 +19,8 @@ export default function Sounds({ handleSfx, handleMusic, onHover, onClick }) {
   return (
     <div className="sounds flex flex-row gap-3">
       <Button
-        tooltip="Sound Effects"
         onClick={onClick}
+        tooltip="Music"
         onPointerEnter={onHover}
         styles={{
           button: `button--circle sounds__btn sounds__btn--volume ${
@@ -33,7 +33,7 @@ export default function Sounds({ handleSfx, handleMusic, onHover, onClick }) {
       />
       <Button
         content={sfxMuted ? "S" : "NS"}
-        tooltip="Music"
+        tooltip="Sound Effects"
         onClick={onClick}
         onPointerEnter={onHover}
         styles={{
