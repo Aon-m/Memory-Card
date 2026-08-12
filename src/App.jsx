@@ -71,11 +71,12 @@ function App() {
       return;
     }
 
-    // If won or result = false
+    // If won or result = true
     setFlippedCards((prev) => prev + 1);
     scoreboardRef.current.increment();
 
     if (result === "won") {
+      scoreboardRef.current.set(10);
       resetGame("You Won!");
       audioController.playSfx("won");
     }

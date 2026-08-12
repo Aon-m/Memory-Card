@@ -21,6 +21,11 @@ const Scoreboard = forwardRef(function Scoreboard(props, ref) {
         setScore(0);
         setBestScore(0);
       },
+
+      set(no) {
+        setScore(no);
+        setBestScore(no);
+      },
     }),
     [score],
   );
