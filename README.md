@@ -2,9 +2,9 @@
 
 [Design inspiration](https://alex-dishen.github.io/memory-card/)
 
-# Todo
+# Live Server
 
-- Generate the card images from a url using an API
+- [Server](to be added)
 
 # Acknowledgement
 
